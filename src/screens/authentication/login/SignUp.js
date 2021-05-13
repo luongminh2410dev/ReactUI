@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
-import styles from './style';
-
+import styles from './styles';
+const dismissKeyboard = () => Keyboard.dismiss();
+const handlePass = (setHide, hide) => {
+    setHide(!hide);
+};
 const SignUp = ({ navigation }) => {
     const [hide, setHide] = useState(true);
-    handlePass = () => {
-        setHide(!hide);
-    }
     return (
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TouchableWithoutFeedback onPress={dismissKeyboard} accessible={false}>
             <View style={styles.container}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Login')}
@@ -42,10 +42,10 @@ const SignUp = ({ navigation }) => {
                         style={styles.password_text}
                     />
                     <TouchableOpacity
-                        onPress={() => handlePass()}
+                        onPress={() => handlePass(setHide, hide)}
                         style={styles.password_eye}
                     >
-                        {hide ? <Feather name="eye" size={20} color="#3C3A36" /> : <Feather name="eye-off" size={20} color="#3C3A36" />}
+                        <Feather name={hide ? 'eye' : 'eye-off'} size={20} color="#3C3A36" />
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity

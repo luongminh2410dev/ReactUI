@@ -3,7 +3,7 @@ import React from 'react'
 import Login from './Login'
 import SignUp from './SignUp'
 
-const StackAuth = createStackNavigator()
+const StackAuth = createStackNavigator();
 const StackContainerAuth = () => {
     return (
         <StackAuth.Navigator headerMode='none'>
@@ -11,6 +11,6 @@ const StackContainerAuth = () => {
             <StackAuth.Screen name='SignUp' component={SignUp} />
         </StackAuth.Navigator>
     )
-}
+};
 
-export default StackContainerAuth
+export default StackContainerAuth;
