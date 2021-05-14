@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, TextInput, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import styles from './styles';
 const dismissKeyboard = () => Keyboard.dismiss();
-
-const Login = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
     const [hide, setHide] = useState(true);
     const handlePass = () => {
         setHide(!hide);
     };
     const handleNavigate = () => {
-        navigation.navigate('SignUp')
+        navigation.navigate('Login')
     }
     return (
         <KeyboardAvoidingView
@@ -20,30 +19,23 @@ const Login = ({ navigation }) => {
         >
             <TouchableWithoutFeedback onPress={dismissKeyboard} accessible={false}>
                 <View style={styles.container}>
+                    <TouchableOpacity
+                        onPress={handleNavigate}
+                        style={styles.header_btn_back}>
+                        <Ionicons name="chevron-back-outline" size={20} color="#3C3A36" />
+                    </TouchableOpacity>
                     <Image
                         style={styles.header_image}
                         resizeMode={'contain'}
-                        source={{ uri: 'https://s3-alpha-sig.figma.com/img/410d/60fa/b606c8528c2f23f9ce6a44d4b6fa69cd?Expires=1621814400&Signature=cEQSr6K9TzJeqY8UtpKGZEpo4D-vjgs5regXco8BBBIdQ0S0LvY7oc-umYLJdjJeeWwxtDMXEYhk~48PusCt3fepGrluzgPUZWXxa2cv2dcYVP0jYdyNMsFMNsVBgFo579VG-hsf7oV-kVDzpl19lqs2PdwbM-Zems3EgLKRgNa01JKpx5TJkONLXF4ThHQtdC-hbumJGhNc4g5n6Zdi7bnyFAVoVfOsEoJV0V6D~DE7hZ4fblaTucJPxndqgUde8CInUjdBoUxQSaYEtsjRJB1-~ZwLYD038TWmbdszkb5n1T~5waYUcPFilElmnpaLZTcOfwbMS1T7pp1LD7AemA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA' }}
+                        source={{ uri: 'https://s3-alpha-sig.figma.com/img/243b/c787/5a30273fd593d3bfac7f18f9337182f0?Expires=1621814400&Signature=KilSqAsPNRMuZRbqGL0QN4M2I3IDP2PNguoK3LJpNWHDqotfYCQLyQvgX22DZzYbkQJoBFVniZ7NIwkVIb-7oF44ucld4CnpCkTj8X6GbmWpC9spBEA7974-RtCooR3rk7CCxBPJS6ykuDpgDuMCR6lDp3nCa1QNHgDGlxVLPOiLiRfJ8ML-WTZqA~wEptbZC3ASAQ-CvXA0UUKKN-ZnypNNWUMUOX7mhLdkoAaDWr8DwC4A0Rf~asQCwl7D2xYjiMtTRwoJbhR7cAgNKB7A7ABnNgpsgCzLKrJg8LZcFPsf2V1L-VXNaytA93vnZPPXWvYEcRw8wLVZ9Lni9kQR1g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA' }}
                     />
-                    <Text style={styles.title_1}>Login</Text>
-                    <Text style={styles.title_2}>Login with social networks</Text>
-                    <View style={styles.other_login}>
-                        <TouchableOpacity
-                            style={styles.btn_other_login}
-                        >
-                            <AntDesign name="facebook-square" size={28} color="#FFFFFF" />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.btn_other_login}
-                        >
-                            <AntDesign name="instagram" size={28} color="#FFFFFF" />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.btn_other_login}
-                        >
-                            <AntDesign name="googleplus" size={28} color="#FFFFFF" />
-                        </TouchableOpacity>
-                    </View>
+                    <Text style={styles.title_1}>Sign up</Text>
+                    <Text style={styles.title_2}>Create your account</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder={'Name'}
+                        placeholderTextColor={'#78746D'}
+                    />
                     <TextInput
                         style={styles.input}
                         placeholder={'Email'}
@@ -64,24 +56,19 @@ const Login = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity
-                        style={styles.btn_forgot}
-                    >
-                        <Text style={styles.txt_forgot}>Forgot Password?</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
                         style={styles.btn_login}
                     >
-                        <Text style={styles.txt_login}>Login</Text>
+                        <Text style={styles.txt_login}>Sign up</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={handleNavigate}
                         style={styles.btn_sign_up}
                     >
-                        <Text style={styles.txt_sign_up}>Sign up</Text>
+                        <Text style={styles.txt_sign_up}>Log in</Text>
                     </TouchableOpacity>
                 </View>
             </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
     )
 }
-export default Login
+export default SignUp
