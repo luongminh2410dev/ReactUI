@@ -16,6 +16,7 @@ const Metrics = {
     STATUS_BAR_HEIGHT: statusHeight,
     DEFAULT_HEADER_HEIGHT: 40,
     MARGIN_ITEM: height > 600 ? 8 : 4,
+    HOME_MARGIN_ITEM: height > 600 ? 12 : 6,
     TEXT_INPUT_HEIGHT: height > 600 ? 53 : 33,
     BTN_BACK_SIZE: height > 600 ? 48 : 36,
 }

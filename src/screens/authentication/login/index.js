@@ -5,14 +5,17 @@ import Feather from 'react-native-vector-icons/Feather';
 import styles from './styles';
 const dismissKeyboard = () => Keyboard.dismiss();
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation }, props) => {
     const [hide, setHide] = useState(true);
     const handlePass = () => {
         setHide(!hide);
     };
-    const handleNavigate = () => {
+    const signUp = () => {
         navigation.navigate('SignUp')
-    }
+    };
+    const signIn = () => {
+        navigation.navigate('Home')
+    };
     return (
         <KeyboardAvoidingView
             style={styles.body}
@@ -69,12 +72,13 @@ const Login = ({ navigation }) => {
                         <Text style={styles.txt_forgot}>Forgot Password?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
+                        onPress={signIn}
                         style={styles.btn_login}
                     >
                         <Text style={styles.txt_login}>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={handleNavigate}
+                        onPress={signUp}
                         style={styles.btn_sign_up}
                     >
                         <Text style={styles.txt_sign_up}>Sign up</Text>
