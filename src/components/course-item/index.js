@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from './styles'
 
-const CourseItem = (props) => {
+const CourseItem = memo((props) => {
+    console.log('Render Item')
     return (
         <TouchableOpacity style={[styles.container, { backgroundColor: props.item.id % 2 == 0 ? '#E6EDF4' : '#F8F2EE' }]}>
             <View style={styles.header}>
@@ -19,6 +20,6 @@ const CourseItem = (props) => {
             </View>
         </TouchableOpacity>
     )
-}
+})
 
 export default CourseItem

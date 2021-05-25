@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, TextInput, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
+import InputText from '../../../components/text-input';
 import styles from './styles';
 const dismissKeyboard = () => Keyboard.dismiss();
 
-const Login = ({ navigation }, props) => {
-    const [hide, setHide] = useState(true);
-    const handlePass = () => {
-        setHide(!hide);
-    };
+const Login = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
     const signUp = () => {
         navigation.navigate('SignUp')
     };
@@ -47,25 +46,17 @@ const Login = ({ navigation }, props) => {
                             <AntDesign name="googleplus" size={28} color="#FFFFFF" />
                         </TouchableOpacity>
                     </View>
-                    <TextInput
-                        style={styles.input}
+                    <InputText
                         placeholder={'Email'}
-                        placeholderTextColor={'#78746D'}
+                        setText={setEmail}
+                        text={email}
                     />
-                    <View style={styles.password}>
-                        <TextInput
-                            placeholder={'Password'}
-                            placeholderTextColor={'#78746D'}
-                            secureTextEntry={hide}
-                            style={styles.password_text}
-                        />
-                        <TouchableOpacity
-                            onPress={handlePass}
-                            style={styles.password_eye}
-                        >
-                            <Feather name={hide ? 'eye' : 'eye-off'} size={20} color="#3C3A36" />
-                        </TouchableOpacity>
-                    </View>
+                    <InputText
+                        type={'password'}
+                        placeholder={'Password'}
+                        setText={setPass}
+                        text={pass}
+                    />
                     <TouchableOpacity
                         style={styles.btn_forgot}
                     >

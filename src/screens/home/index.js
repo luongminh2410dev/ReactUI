@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -14,6 +14,8 @@ const renderItem = ({ item }) => (
     <CourseItem item={item} />
 );
 const Home = () => {
+    const [text, setText] = useState('');
+    console.log('Render Home')
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <KeyboardAvoidingView
@@ -39,6 +41,8 @@ const Home = () => {
                                 style={styles.search_input}
                                 placeholder={'Search course'}
                                 placeholderTextColor={'#78746D'}
+                                onChangeText={setText}
+                                value={text}
                             />
                             <TouchableOpacity style={styles.search_btn}>
                                 <AntDesign name="search1" size={20} color="#200E32" />
