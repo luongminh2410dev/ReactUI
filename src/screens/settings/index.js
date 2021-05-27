@@ -16,6 +16,7 @@ const Settings = ({ navigation }) => {
     }
     return (
         <ScrollView
+            showsVerticalScrollIndicator={false}
             style={styles.body}>
             <View style={styles.container}>
                 <View style={styles.header}>

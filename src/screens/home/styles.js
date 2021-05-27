@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import { Colors, Metrics } from '../../ultilities'
 const styles = StyleSheet.create({
     body: {
@@ -8,13 +8,12 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         paddingHorizontal: 16,
-        paddingVertical: 8,
+        paddingTop: 8,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors.AUTHEN_BACKGROUND,
     },
     header: {
-        marginTop: Metrics.MARGIN_ITEM,
         width: '100%',
         height: 68,
         flexDirection: 'row',
@@ -93,17 +92,18 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     list_course: {
+        marginTop: Metrics.MARGIN_ITEM,
         width: '100%',
         height: '100%'
     },
     label_style: {
         fontSize: 14,
         textAlign: 'center',
-        paddingBottom: Metrics.MARGIN_ITEM * 2,
+        paddingBottom: Platform.OS === 'ios' ? 0 : Metrics.MARGIN_ITEM * 2,
     },
     tab_bar: {
         width: '100%',
-        height: Metrics.DEVICE_HEIGHT > 600 ? 70 : 60,
+        height: Platform.OS === 'ios' ? 90 : 70,
         paddingVertical: Metrics.MARGIN_ITEM * 2,
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         borderColor: Colors.BORDER,
         alignItems: 'center',
         justifyContent: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
     }
 })
 

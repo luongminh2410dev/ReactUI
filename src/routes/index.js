@@ -1,6 +1,6 @@
 import React from 'react';
-import { StatusBar, Platform, UIManager } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar, Platform, UIManager, SafeAreaView } from 'react-native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Login from '../screens/authentication/login';
@@ -24,6 +24,7 @@ if (
 const HomeTab = () => {
     return (
         <Tab.Navigator
+            initialRouteName='Home'
             tabBarOptions={{
                 activeTintColor: '#E3562A',
                 labelStyle: styles.label_style,
@@ -34,17 +35,19 @@ const HomeTab = () => {
                 name="Home"
                 component={Home}
                 options={{
-                    tabBarIcon: ({ focused }) => (
-                        <FontAwesome5 name="book" size={20} color={focused ? '#E3562A' : "#BEBAB3"} />
-                    )
+                    tabBarLabel: 'Home',
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome5 name="book" size={20} color={color} />
+                    ),
                 }}
             />
             <Tab.Screen
                 name="Profile"
                 component={Profile}
                 options={{
-                    tabBarIcon: ({ focused }) => (
-                        <FontAwesome name="user" size={20} color={focused ? '#E3562A' : "#BEBAB3"} />
+                    tabBarLabel: 'Profile',
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome name="user" size={20} color={color} />
                     )
                 }}
             />
@@ -52,23 +55,33 @@ const HomeTab = () => {
                 name="Settings"
                 component={Settings}
                 options={{
-                    tabBarIcon: ({ focused }) => (
-                        <Ionicons name="settings-sharp" size={20} color={focused ? '#E3562A' : "#BEBAB3"} />
+                    tabBarLabel: 'Settings',
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="settings-sharp" size={20} color={color} />
                     )
                 }}
             />
         </Tab.Navigator>
     )
 }
+const myTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        background: 'white'
+    },
+}
 const AppNavigator = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator headerMode='none' initialRouteName='Login'>
-                <Stack.Screen name='Login' component={Login} />
-                <Stack.Screen name='SignUp' component={SignUp} />
-                <Stack.Screen name='Home' component={HomeTab} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <SafeAreaView style={{ flex: 1, marginTop: Platform.OS === 'ios' ? 10 : 0 }}>
+            <NavigationContainer theme={myTheme}>
+                <Stack.Navigator headerMode='none' initialRouteName='Login'>
+                    <Stack.Screen name='Login' component={Login} />
+                    <Stack.Screen name='SignUp' component={SignUp} />
+                    <Stack.Screen name='Home' component={HomeTab} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </SafeAreaView>
     );
 }
 

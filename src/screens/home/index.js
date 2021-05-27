@@ -16,65 +16,70 @@ const renderItem = ({ item }) => (
 const Home = () => {
     const [text, setText] = useState('');
     console.log('Render Home')
-    return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-            <KeyboardAvoidingView
-                style={styles.body}
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-            >
-                <TouchableWithoutFeedback
-                    onPress={dismissKeyboard}
-                    accessible={false}
-                >
-                    <View style={styles.container}>
-                        <View style={styles.header}>
-                            <View style={styles.header_title}>
-                                <Text style={styles.header_title_1}>Hello,</Text>
-                                <Text style={styles.header_title_2}>Juana Antonieta</Text>
-                            </View>
-                            <TouchableOpacity style={styles.header_notification}>
-                                <Fontisto name="bell" size={20} color="#200E32" />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.search}>
-                            <TextInput
-                                style={styles.search_input}
-                                placeholder={'Search course'}
-                                placeholderTextColor={'#78746D'}
-                                onChangeText={setText}
-                                value={text}
-                            />
-                            <TouchableOpacity style={styles.search_btn}>
-                                <AntDesign name="search1" size={20} color="#200E32" />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.category}>
-                            <Text style={styles.category_title}>Category:</Text>
-                            <View style={styles.category_item}>
-                                <Text style={styles.category_item_txt}>#CSS</Text>
-                            </View>
-                            <View style={styles.category_item}>
-                                <Text style={styles.category_item_txt}>#UX</Text>
-                            </View>
-                            <View style={styles.category_item}>
-                                <Text style={styles.category_item_txt}>#Swift</Text>
-                            </View>
-                            <View style={styles.category_item}>
-                                <Text style={styles.category_item_txt}>#UI</Text>
-                            </View>
-                        </View>
-                        <FlatList
-                            style={styles.list_course}
-                            data={data}
-                            scrollEnabled={false}
-                            showsVerticalScrollIndicator={false}
-                            keyExtractor={(item, index) => index.toString()}
-                            renderItem={renderItem}
-                        />
+    const getHeader = () => {
+        return (
+            <View>
+                <View style={styles.header}>
+                    <View style={styles.header_title}>
+                        <Text style={styles.header_title_1}>Hello,</Text>
+                        <Text style={styles.header_title_2}>Juana Antonieta</Text>
                     </View>
-                </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
-        </ScrollView>
+                    <TouchableOpacity style={styles.header_notification}>
+                        <Fontisto name="bell" size={20} color="#200E32" />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.search}>
+                    <TextInput
+                        style={styles.search_input}
+                        placeholder={'Search course'}
+                        placeholderTextColor={'#78746D'}
+                        onChangeText={setText}
+                        value={text}
+                    />
+                    <TouchableOpacity style={styles.search_btn}>
+                        <AntDesign name="search1" size={20} color="#200E32" />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.category}>
+                    <Text style={styles.category_title}>Category:</Text>
+                    <View style={styles.category_item}>
+                        <Text style={styles.category_item_txt}>#CSS</Text>
+                    </View>
+                    <View style={styles.category_item}>
+                        <Text style={styles.category_item_txt}>#UX</Text>
+                    </View>
+                    <View style={styles.category_item}>
+                        <Text style={styles.category_item_txt}>#Swift</Text>
+                    </View>
+                    <View style={styles.category_item}>
+                        <Text style={styles.category_item_txt}>#UI</Text>
+                    </View>
+                </View>
+            </View>
+        )
+    }
+    return (
+        <KeyboardAvoidingView
+            style={styles.body}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+            <TouchableWithoutFeedback
+                onPress={dismissKeyboard}
+                accessible={false}
+            >
+                <View style={styles.container}>
+
+                    <FlatList
+                        style={styles.list_course}
+                        data={data}
+                        showsVerticalScrollIndicator={false}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={renderItem}
+                        ListHeaderComponent={getHeader}
+                    />
+                </View>
+            </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
     )
 }
 
