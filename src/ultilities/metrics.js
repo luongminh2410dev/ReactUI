@@ -19,6 +19,7 @@ const Metrics = {
     HOME_MARGIN_ITEM: height > 600 ? 12 : 6,
     TEXT_INPUT_HEIGHT: height > 600 ? 53 : 33,
     BTN_BACK_SIZE: height > 600 ? 48 : 36,
+    FONT_SIZE: height > 600 ? 4 : 3,
 }
 
 export default Metrics;

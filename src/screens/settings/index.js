@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, Switch, ScrollView } from 'react-n
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles'
 
 
@@ -48,7 +49,7 @@ const Settings = ({ navigation }) => {
                 <TouchableOpacity style={styles.main_btn}>
                     <View style={styles.main_btn_1}>
                         <View style={styles.main_btn_bell}>
-                            <FontAwesome name="user" size={12} color="#FFFFFF" />
+                            <FontAwesome style={styles.set_size_icon} name="user" size={12} color="#FFFFFF" />
                         </View>
                         <View style={styles.main_txt}>
                             <Text style={styles.main_btn_txt}>Name</Text>
@@ -62,7 +63,7 @@ const Settings = ({ navigation }) => {
                 <TouchableOpacity style={styles.main_btn}>
                     <View style={styles.main_btn_1}>
                         <View style={styles.main_btn_bell}>
-                            <FontAwesome5 name="bell" size={12} color="#FFFFFF" />
+                            <MaterialCommunityIcons name="email" size={12} color="#FFFFFF" />
                         </View>
                         <View style={styles.main_txt}>
                             <Text style={styles.main_btn_txt}>Email</Text>
@@ -76,7 +77,7 @@ const Settings = ({ navigation }) => {
                 <TouchableOpacity style={styles.main_btn}>
                     <View style={styles.main_btn_1}>
                         <View style={styles.main_btn_bell}>
-                            <FontAwesome5 name="bell" size={12} color="#FFFFFF" />
+                            <FontAwesome style={styles.set_size_icon} name="lock" size={12} color="#FFFFFF" />
                         </View>
                         <View style={styles.main_txt}>
                             <Text style={styles.main_btn_txt}>Password</Text>

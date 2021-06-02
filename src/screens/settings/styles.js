@@ -68,6 +68,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         borderRadius: 1000,
     },
+    set_size_icon: {
+        marginHorizontal: 1,
+    },
     main_txt: {
         flexDirection: 'column',
         justifyContent: 'flex-start'

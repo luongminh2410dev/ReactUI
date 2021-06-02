@@ -12,6 +12,8 @@ import styles from '../screens/home/styles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import Results from '../screens/results';
+import ProductDetail from '../screens/product-detail';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -79,6 +81,8 @@ const AppNavigator = () => {
                     <Stack.Screen name='Login' component={Login} />
                     <Stack.Screen name='SignUp' component={SignUp} />
                     <Stack.Screen name='Home' component={HomeTab} />
+                    <Stack.Screen name='Results' component={Results} />
+                    <Stack.Screen name='Product Detail' component={ProductDetail} />
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaView>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, TextInput, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Feather from 'react-native-vector-icons/Feather';
 import InputText from '../../../components/text-input';
 import styles from './styles';
 const dismissKeyboard = () => Keyboard.dismiss();
@@ -15,12 +14,15 @@ const Login = ({ navigation }) => {
     const signIn = () => {
         navigation.navigate('Home')
     };
+    console.log('Render Login')
     return (
         <KeyboardAvoidingView
             style={styles.body}
             behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
-            <TouchableWithoutFeedback onPress={dismissKeyboard} accessible={false}>
+            <TouchableWithoutFeedback
+                onPress={dismissKeyboard}
+                accessible={false}>
                 <View style={styles.container}>
                     <Image
                         style={styles.header_image}
