@@ -18,13 +18,10 @@ const Results = ({ navigation, route }) => {
     const handleNavigate = () => {
         navigation.goBack()
     }
-    const handleSelected = (item) => {
-        navigation.navigate('Product Detail', { item })
-    }
     const renderItem = ({ item }) => (
         <CourseItem
             item={item}
-            handleSelected={handleSelected} />
+        />
     )
     const getHeader = () => {
         return (

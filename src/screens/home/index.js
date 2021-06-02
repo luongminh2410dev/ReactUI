@@ -15,13 +15,9 @@ const Home = ({ navigation }) => {
     const handleSearch = () => {
         navigation.navigate('Results', { text });
     }
-    const handleSelected = (item) => {
-        navigation.navigate('Product Detail', { item })
-    }
     const renderItem = useCallback(({ item }) => (
         <CourseItem
             item={item}
-            handleSelected={handleSelected}
         />
     ), [])
     console.log('Render Home')

@@ -1,15 +1,20 @@
 import React, { memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import styles from './styles'
+import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+
 const CourseItem = memo((props) => {
-    const handleSelect = () => {
-        props.handleSelected(props.item)
+    const navigation = useNavigation();
+
+    const { item } = props
+    const handleSelected = () => {
+        navigation.navigate('Product Detail', { item })
     }
-    const item = props.item
     console.log('Render Item')
+
     return (
         <TouchableOpacity
-            onPress={handleSelect}
+            onPress={handleSelected}
             style={[styles.container, { backgroundColor: item.id % 2 == 0 ? '#E6EDF4' : '#F8F2EE' }]}>
             <View style={styles.header}>
                 <Image

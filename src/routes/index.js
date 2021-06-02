@@ -14,6 +14,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Results from '../screens/results';
 import ProductDetail from '../screens/product-detail';
+import CourseItem from '../components/course-item';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
