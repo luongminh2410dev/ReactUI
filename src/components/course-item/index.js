@@ -1,5 +1,5 @@
 import React, { memo, useMemo } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Alert } from 'react-native'
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import Feather from 'react-native-vector-icons/Feather'
@@ -16,7 +16,24 @@ const CourseItem = memo((props) => {
         }
     }, []);
     const handleRemoveCourse = () => {
-        removeCourse(item)
+        Alert.alert(
+            'Thông báo',
+            'Bạn có chắc muốn xoá khoá học này không?',
+            [
+                {
+                    text: 'Huỷ',
+                    style: 'cancel',
+                },
+                {
+                    text: 'Xoá',
+                    onPress: () => {
+                        item.state = 'abc'
+                        removeCourse(item)
+                    },
+                },
+            ],
+            { cancelable: false }
+        );
     }
     console.log('Render Item')
     return (

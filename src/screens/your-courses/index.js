@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 import CourseItem from '../../components/course-item';
 import { removeCourse } from '../../actions/cart';
 
-
-
+const keyExtractor = (item, index) => index.toString()
 const YourCourses = ({ navigation, cart, removeCourse }) => {
     const handleNavigate = () => {
         navigation.goBack();
@@ -34,7 +33,7 @@ const YourCourses = ({ navigation, cart, removeCourse }) => {
                 style={styles.list_course}
                 data={cart}
                 showsVerticalScrollIndicator={false}
-                keyExtractor={(item, index) => index.toString()}
+                keyExtractor={keyExtractor}
                 renderItem={renderItem}
             />
         </View>

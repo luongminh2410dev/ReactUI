@@ -1,4 +1,3 @@
-import { addCourse } from '../actions/cart'
 import { ADD_COURSE, REMOVE_COURSE } from '../actions/types'
 const INITIAL_STATE = {
     cart: [],
@@ -16,6 +15,7 @@ export default (state = INITIAL_STATE, { type, course }) => {
             })
             if (!check) {
                 state.cart.push(course)
+                alert('Thêm khóa học thành công')
                 return {
                     ...state,
                     cart: state.cart

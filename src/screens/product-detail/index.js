@@ -1,18 +1,47 @@
-import React from 'react'
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
+import React, { useCallback, useState } from 'react'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { addCourse } from '../../actions/cart';
 import { connect } from 'react-redux';
 
-const ProductDetail = ({ navigation, route, addCourse }) => {
+const ProductDetail = ({ navigation, route, addCourse, cart }) => {
     const product = route.params.item
+    const checkCart = () => {
+        return cart.find(item => {
+            if (item.id === product.id) {
+                return true
+            }
+            return false
+        })
+    }
+    const [check, setCheck] = useState(checkCart)
     const handleNavigate = () => {
         navigation.goBack();
     }
     const handleAddCourse = () => {
         addCourse(product)
+        setCheck(checkCart)
     }
+    const handleStartCourse = () => {
+        navigation.navigate('Choose Lesson', { product })
+    }
+    const renderButton = (
+        !check ?
+            <TouchableOpacity
+                onPress={handleAddCourse}
+                style={styles.btn_add}
+            >
+                <Text style={styles.txt_add}>Add to cart</Text>
+            </TouchableOpacity>
+            :
+            <TouchableOpacity
+                onPress={handleStartCourse}
+                style={styles.btn_add}
+            >
+                <Text style={styles.txt_add}>Start</Text>
+            </TouchableOpacity>
+    )
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -37,15 +66,14 @@ const ProductDetail = ({ navigation, route, addCourse }) => {
             <Text style={styles.course_title_2}>Duration</Text>
             <Text style={styles.course_duration}>{product.time}</Text>
             <View style={styles.btn_area}>
-                <TouchableOpacity
-                    onPress={handleAddCourse}
-                    style={styles.btn_add}
-                >
-                    <Text style={styles.txt_add}>Add to cart</Text>
-                </TouchableOpacity>
+                {renderButton}
             </View>
         </View>
     )
 }
-
-export default connect(null, { addCourse })(ProductDetail);
+const mapStateToProps = (state) => {
+    return {
+        cart: state.cart.cart
+    };
+};
+export default connect(mapStateToProps, { addCourse })(ProductDetail);
