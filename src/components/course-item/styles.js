@@ -15,13 +15,18 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 194,
         flexDirection: 'column',
-        paddingTop: Metrics.MARGIN_ITEM * 2,
+        paddingVertical: Metrics.MARGIN_ITEM,
         justifyContent: 'center'
     },
     course_img: {
         width: '100%',
         height: 138,
         resizeMode: 'center'
+    },
+    remove_btn: {
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        marginRight: Metrics.MARGIN_ITEM,
     },
     course_price: {
         alignSelf: 'flex-end',

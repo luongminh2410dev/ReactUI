@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, Platform, UIManager, SafeAreaView } from 'react-native';
+import { Platform, UIManager, SafeAreaView } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -14,7 +14,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Results from '../screens/results';
 import ProductDetail from '../screens/product-detail';
-import CourseItem from '../components/course-item';
+import YourCourses from '../screens/your-courses';
+import store from '../store';
+import { Provider } from 'react-redux';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -77,15 +79,18 @@ const myTheme = {
 const AppNavigator = () => {
     return (
         <SafeAreaView style={{ flex: 1, marginTop: Platform.OS === 'ios' ? 10 : 0 }}>
-            <NavigationContainer theme={myTheme}>
-                <Stack.Navigator headerMode='none' initialRouteName='Login'>
-                    <Stack.Screen name='Login' component={Login} />
-                    <Stack.Screen name='SignUp' component={SignUp} />
-                    <Stack.Screen name='Home' component={HomeTab} />
-                    <Stack.Screen name='Results' component={Results} />
-                    <Stack.Screen name='Product Detail' component={ProductDetail} />
-                </Stack.Navigator>
-            </NavigationContainer>
+            <Provider store={store}>
+                <NavigationContainer theme={myTheme}>
+                    <Stack.Navigator headerMode='none' initialRouteName='Login'>
+                        <Stack.Screen name='Login' component={Login} />
+                        <Stack.Screen name='SignUp' component={SignUp} />
+                        <Stack.Screen name='Home' component={HomeTab} />
+                        <Stack.Screen name='Results' component={Results} />
+                        <Stack.Screen name='Product Detail' component={ProductDetail} />
+                        <Stack.Screen name='Your Courses' component={YourCourses} />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </Provider>
         </SafeAreaView>
     );
 }

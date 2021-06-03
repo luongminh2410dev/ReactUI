@@ -2,15 +2,18 @@ import React from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import styles from './styles'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-const ProductDetail = ({ navigation, route }) => {
+import { addCourse } from '../../actions/cart';
+import { connect } from 'react-redux';
+
+const ProductDetail = ({ navigation, route, addCourse }) => {
     const product = route.params.item
     const handleNavigate = () => {
-        navigation.goBack()
+        navigation.goBack();
+    }
+    const handleAddCourse = () => {
+        addCourse(product)
     }
     return (
-        // <ScrollView
-        //     style={styles.body}
-        //     showsHorizontalScrollIndicator={false}>
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity
@@ -35,14 +38,14 @@ const ProductDetail = ({ navigation, route }) => {
             <Text style={styles.course_duration}>{product.time}</Text>
             <View style={styles.btn_area}>
                 <TouchableOpacity
+                    onPress={handleAddCourse}
                     style={styles.btn_add}
                 >
                     <Text style={styles.txt_add}>Add to cart</Text>
                 </TouchableOpacity>
             </View>
         </View>
-        // </ScrollView>
     )
 }
 
-export default ProductDetail
+export default connect(null, { addCourse })(ProductDetail);
