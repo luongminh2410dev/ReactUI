@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react'
-import { View, Text, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
+import { View, Text, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, TouchableOpacity, FlatList } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto'
-import AntDesign from 'react-native-vector-icons/AntDesign'
 import styles from './styles'
 import CourseItem from '../../components/course-item'
 import { connect } from 'react-redux'
+import SearchInput from './components/search-input'
 const dismissKeyboard = () => Keyboard.dismiss();
 const keyExtractor = (item, index) => index.toString()
 const Home = ({ navigation, course }) => {
@@ -37,20 +37,11 @@ const Home = ({ navigation, course }) => {
                             <Fontisto name="bell" size={20} color="#200E32" />
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.search}>
-                        <TextInput
-                            style={styles.search_input}
-                            placeholder={'Search course'}
-                            placeholderTextColor={'#78746D'}
-                            onChangeText={setText}
-                            value={text}
-                        />
-                        <TouchableOpacity
-                            onPress={handleSearch}
-                            style={styles.search_btn}>
-                            <AntDesign name="search1" size={20} color="#200E32" />
-                        </TouchableOpacity>
-                    </View>
+                    <SearchInput
+                        text={text}
+                        setText={setText}
+                        handleSearch={handleSearch}
+                    />
                     <View style={styles.category}>
                         <Text style={styles.category_title}>Category:</Text>
                         <View style={styles.category_item}>

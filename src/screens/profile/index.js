@@ -1,27 +1,17 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Payment from './payment';
-import SavedCourses from './saved-course';
+import HeaderBack from '../../components/header-back';
+import Payment from './components/payment';
+import SavedCourses from './components/saved-course';
 import styles from './styles'
-import YourCourses from './your-courses';
+import YourCourses from './components/your-courses';
 const Profile = ({ navigation }) => {
-    const handleNavigate = () => {
-        navigation.goBack();
-    }
     const handleNavigateYourCourse = () => {
         navigation.navigate('Your Courses')
     }
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <TouchableOpacity
-                    onPress={handleNavigate}
-                    style={styles.header_btn_back}>
-                    <Ionicons name="chevron-back-outline" size={20} color="#3C3A36" />
-                </TouchableOpacity>
-                <Text style={styles.header_title}>Profile</Text>
-            </View>
+            <HeaderBack title={'Profile'} />
             <View style={styles.header_img}>
                 <Image
                     style={styles.image}

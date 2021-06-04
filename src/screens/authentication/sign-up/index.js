@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity, TextInput, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feather from 'react-native-vector-icons/Feather';
 import styles from './styles';
 import InputText from '../../../components/text-input';
 const dismissKeyboard = () => Keyboard.dismiss();

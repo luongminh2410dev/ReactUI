@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../ultilities'
+import { Colors, Metrics } from '../../../ultilities'
 const styles = StyleSheet.create({
     body: {
         flex: 1,
@@ -27,27 +27,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     header_title: {
-        width: 100,
+        width: 150,
         fontSize: 24,
         color: Colors.TEXT_COLOR,
         fontWeight: 'bold',
         textAlign: 'center',
         alignSelf: 'center',
-        marginLeft: Metrics.DEVICE_WIDTH / 2 - 16 - Metrics.BTN_BACK_SIZE - 50
+        marginLeft: Metrics.DEVICE_WIDTH / 2 - 16 - Metrics.BTN_BACK_SIZE - 75
     },
-    img: {
+    list_course: {
+        marginTop: Metrics.MARGIN_ITEM,
         width: '100%',
-        height: Metrics.DEVICE_HEIGHT > 600 ? 190 : 160,
-        resizeMode: 'contain',
-        marginTop: Metrics.MARGIN_ITEM * 3,
-        marginBottom: Metrics.MARGIN_ITEM,
+        height: '100%'
     },
-    main_title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'left',
-        alignSelf: 'flex-start',
-        marginVertical: Metrics.MARGIN_ITEM
-    }
 })
 export default styles

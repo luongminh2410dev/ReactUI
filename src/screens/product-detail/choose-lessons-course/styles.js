@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../ultilities'
+import { Colors, Metrics } from '../../../ultilities'
 const styles = StyleSheet.create({
     container: {
         flex: 1,

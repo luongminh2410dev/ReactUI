@@ -4,13 +4,13 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../screens/authentication/login';
 import SignUp from '../screens/authentication/sign-up';
-import Results from '../screens/results';
+import Results from '../screens/home/results';
 import ProductDetail from '../screens/product-detail';
-import YourCourses from '../screens/your-courses';
+import YourCourses from '../screens/profile/your-courses';
 import store from '../store';
 import { Provider } from 'react-redux';
 import MainTab from './main-tab-navigator';
-import ChooseLesson from '../screens/choose-lessons-course';
+import ChooseLesson from '../screens/product-detail/choose-lessons-course';
 const Stack = createStackNavigator();
 
 if (

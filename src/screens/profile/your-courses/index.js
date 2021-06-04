@@ -1,13 +1,37 @@
-import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
-import styles from './style'
-const YourCourses = ({ handleNavigateYourCourse }) => {
+import React, { useCallback } from 'react'
+import { View, FlatList } from 'react-native'
+import styles from './styles'
+import { connect } from 'react-redux';
+import CourseItem from '../../../components/course-item';
+import { removeCourse } from '../../../actions/cart';
+import HeaderBack from '../../../components/header-back';
+
+const keyExtractor = (item, index) => index.toString()
+const YourCourses = ({ cart, removeCourse }) => {
+    const renderItem = useCallback(({ item }) => (
+        <CourseItem
+            item={item}
+            type={'in-cart'}
+            removeCourse={removeCourse}
+        />
+    ), [cart])
+
     return (
-        <TouchableOpacity
-            onPress={handleNavigateYourCourse}
-            style={styles.main_btn}>
-            <Text style={styles.main_btn_txt}>Your Courses</Text>
-        </TouchableOpacity>
+        <View style={styles.container}>
+            <HeaderBack title={'Your Courses'} />
+            <FlatList
+                style={styles.list_course}
+                data={cart}
+                showsVerticalScrollIndicator={false}
+                keyExtractor={keyExtractor}
+                renderItem={renderItem}
+            />
+        </View>
     )
 }
-export default YourCourses
+const mapStateToProps = (state) => {
+    return {
+        cart: state.cart.cart
+    };
+};
+export default connect(mapStateToProps, { removeCourse })(YourCourses)

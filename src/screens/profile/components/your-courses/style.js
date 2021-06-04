@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../../ultilities'
+import { Colors, Metrics } from '../../../../ultilities'
 const styles = StyleSheet.create({
     main_btn: {
         marginVertical: Metrics.MARGIN_ITEM,

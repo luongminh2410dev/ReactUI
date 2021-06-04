@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import LessonItem from '../../components/lesson-item';
+import HeaderBack from '../../../components/header-back';
+import LessonItem from '../../../components/lesson-item';
 import styles from './styles'
 const data = [
     { id: 1, name: 'Main Tags', progress: 1, img: 'https://s3-alpha-sig.figma.com/img/f355/4c30/96ed6b15518aaf196b6129650feecb57?Expires=1623628800&Signature=FbENy2Y6NHHaSkpUhr1oAIfoIm9YSAbzylStLbD99FvLw-u7Xw4gLcaXBhnpAL6I~1nAjG~UVEam6C9Fq5cVhv65f1ixCFY~gJWO8A784G-o2RatmS8Qc5dzowKx-QzGLmhVUITyTz40ULyLsuZM~8VqU87yyenN5Cr3xSm-q0Oz~OIZR3162t7YtLSpeZMFe--mxrVNeCDOfCMcxXyBqhVH3EDt05RdN8fIEir40YclKh0M0BdEiectc1fM795OFDsZ~t6ar03vhSFJYm8E2PS0-48IVMVYUEKpKey3KRESjTl8imE7AE4nRGoaQECFQITGai8i~bgZ8wCZcL26rQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA' },
@@ -11,10 +11,7 @@ const data = [
 ]
 const keyExtractor = (item, index) => index.toString()
 
-const ChooseLesson = ({ route, navigation }) => {
-    const handleNavigate = () => {
-        navigation.goBack();
-    }
+const ChooseLesson = ({ route }) => {
     const renderItem = useCallback(({ item }) => (
         <LessonItem item={item} />
     ), []);
@@ -22,14 +19,7 @@ const ChooseLesson = ({ route, navigation }) => {
     const getHeader = () => {
         return (
             <View>
-                <View style={styles.header}>
-                    <TouchableOpacity
-                        onPress={handleNavigate}
-                        style={styles.header_btn_back}>
-                        <Ionicons name="chevron-back-outline" size={20} color="#3C3A36" />
-                    </TouchableOpacity>
-                    <Text style={styles.header_title}>{product.name}</Text>
-                </View>
+                <HeaderBack title={product.name} />
                 <TouchableOpacity style={styles.introduce}>
                     <View style={styles.intro_header}>
                         <Image
