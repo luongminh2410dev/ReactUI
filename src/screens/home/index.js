@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { View, Text, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, TouchableOpacity, FlatList } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import styles from './styles'
@@ -6,7 +6,7 @@ import CourseItem from '../../components/course-item'
 import { connect } from 'react-redux'
 import SearchInput from './components/search-input'
 const dismissKeyboard = () => Keyboard.dismiss();
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (item) => `course_${item.id}`;
 const Home = ({ navigation, course }) => {
     const [text, setText] = useState('');
     const handleSearch = () => {

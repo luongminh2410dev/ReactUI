@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     header_title: {
-        width: 150,
+        width: 160,
         fontSize: 24,
         color: Colors.TEXT_COLOR,
         fontWeight: 'bold',
         textAlign: 'center',
         alignSelf: 'center',
-        marginLeft: Metrics.DEVICE_WIDTH / 2 - 16 - Metrics.BTN_BACK_SIZE - 75
+        marginLeft: Metrics.DEVICE_WIDTH / 2 - 16 - Metrics.BTN_BACK_SIZE - 80
     },
 })
 export default styles

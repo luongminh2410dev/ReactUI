@@ -27,7 +27,6 @@ const CourseItem = memo((props) => {
                 {
                     text: 'Xoá',
                     onPress: () => {
-                        item.state = 'abc'
                         removeCourse(item)
                     },
                 },
@@ -36,46 +35,32 @@ const CourseItem = memo((props) => {
         );
     }
     console.log('Render Item')
+
     return (
-        type === 'in-cart' ?
-            <TouchableOpacity
-                onPress={handleSelected}
-                style={[styles.container, setBackgroundColor]}>
-                <View style={styles.header}>
+        <TouchableOpacity
+            onPress={handleSelected}
+            style={[styles.container, setBackgroundColor]}>
+            <View style={styles.header}>
+                {
+                    type === 'in-cart' &&
                     <TouchableOpacity
                         onPress={handleRemoveCourse}
                         style={styles.remove_btn}>
                         <Feather name="x-octagon" size={20} color="#200E32" />
                     </TouchableOpacity>
-                    <Image
-                        style={styles.course_img}
-                        source={{ uri: item.img }}
-                    />
-                    <Text style={styles.course_price}>${item.price}</Text>
-                </View>
-                <View style={styles.course_info}>
-                    <Text style={styles.course_time}>{item.time}</Text>
-                    <Text style={styles.course_name}>{item.name}</Text>
-                    <Text style={styles.course_description}>{item.description}</Text>
-                </View>
-            </TouchableOpacity>
-            :
-            <TouchableOpacity
-                onPress={handleSelected}
-                style={[styles.container, setBackgroundColor]}>
-                <View style={styles.header}>
-                    <Image
-                        style={styles.course_img}
-                        source={{ uri: item.img }}
-                    />
-                    <Text style={styles.course_price}>${item.price}</Text>
-                </View>
-                <View style={styles.course_info}>
-                    <Text style={styles.course_time}>{item.time}</Text>
-                    <Text style={styles.course_name}>{item.name}</Text>
-                    <Text style={styles.course_description}>{item.description}</Text>
-                </View>
-            </TouchableOpacity>
+                }
+                <Image
+                    style={styles.course_img}
+                    source={{ uri: item.img }}
+                />
+                <Text style={styles.course_price}>${item.price}</Text>
+            </View>
+            <View style={styles.course_info}>
+                <Text style={styles.course_time}>{item.time}</Text>
+                <Text style={styles.course_name}>{item.name}</Text>
+                <Text style={styles.course_description}>{item.description}</Text>
+            </View>
+        </TouchableOpacity>
     )
 })
 

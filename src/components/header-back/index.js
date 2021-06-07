@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -20,4 +20,4 @@ const HeaderBack = ({ title }) => {
     )
 }
 
-export default HeaderBack
+export default memo(HeaderBack);

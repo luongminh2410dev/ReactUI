@@ -8,37 +8,20 @@ import HeaderBack from '../../components/header-back';
 const ProductDetail = ({ navigation, route, addCourse, cart }) => {
     const product = route.params.item
     const checkCart = () => {
-        return cart.find(item => {
-            if (item.id === product.id) {
-                return true
-            }
-            return false
-        })
+        const index = cart.findIndex(item => item.id === product.id);
+        return index !== -1;
     }
     const [check, setCheck] = useState(checkCart)
     const handleAddCourse = () => {
         addCourse(product)
-        setCheck(checkCart)
+        setCheck(true)
     }
     const handleStartCourse = () => {
         navigation.navigate('Choose Lesson', { product })
     }
-    const renderButton = (
-        !check ?
-            <TouchableOpacity
-                onPress={handleAddCourse}
-                style={styles.btn_add}
-            >
-                <Text style={styles.txt_add}>Add to cart</Text>
-            </TouchableOpacity>
-            :
-            <TouchableOpacity
-                onPress={handleStartCourse}
-                style={styles.btn_add}
-            >
-                <Text style={styles.txt_add}>Start</Text>
-            </TouchableOpacity>
-    )
+    const handleBtnSelected = () => {
+        !check ? handleAddCourse() : handleStartCourse()
+    }
     return (
         <View style={styles.container}>
             <HeaderBack title={product.name} />
@@ -56,8 +39,14 @@ const ProductDetail = ({ navigation, route, addCourse, cart }) => {
             <Text style={styles.course_title_2}>Duration</Text>
             <Text style={styles.course_duration}>{product.time}</Text>
             <View style={styles.btn_area}>
-                {renderButton}
+                <TouchableOpacity
+                    onPress={handleBtnSelected}
+                    style={styles.btn_add}
+                >
+                    <Text style={styles.txt_add}>{!check ? 'Add to cart' : 'Start'}</Text>
+                </TouchableOpacity>
             </View>
+
         </View>
     )
 }

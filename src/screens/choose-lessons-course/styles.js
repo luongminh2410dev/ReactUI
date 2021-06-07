@@ -1,36 +1,18 @@
 import { Platform, StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../../ultilities'
+import { Colors, Metrics } from '../../ultilities'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
         paddingHorizontal: 16,
-        paddingTop: Metrics.MARGIN_ITEM,
+        paddingVertical: Metrics.MARGIN_ITEM,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors.AUTHEN_BACKGROUND,
     },
     header: {
         width: '100%',
-        flexDirection: 'row',
-    },
-    header_btn_back: {
-        height: Metrics.BTN_BACK_SIZE,
-        width: Metrics.BTN_BACK_SIZE,
-        borderWidth: 2,
-        borderColor: Colors.BORDER,
-        borderRadius: Metrics.BTN_BACK_SIZE / 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    header_title: {
-        width: 140,
-        fontSize: 24,
-        color: Colors.TEXT_COLOR,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        alignSelf: 'center',
-        marginLeft: Metrics.DEVICE_WIDTH / 2 - 16 - Metrics.BTN_BACK_SIZE - 70
+        marginTop: Metrics.MARGIN_ITEM
     },
     introduce: {
         flexDirection: 'column',

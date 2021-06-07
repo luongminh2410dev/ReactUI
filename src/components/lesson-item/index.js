@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from './styles'
-const LessonItem = ({ item }) => {
+import { useNavigation } from '@react-navigation/native';
+const LessonItem = ({ item, course }) => {
     console.log('Render Lesson')
+    const navigation = useNavigation();
+    // Set progress 
     const progress = item.progress * 100;
+    const progressStyle = useMemo(() => {
+        return [styles.progress, { width: `${progress}%` }]
+    }, [progress])
+    // Navigate screen CourseLesson 
+    const handleNavigator = () => {
+        navigation.navigate('Course Lesson', { course: course, lesson: item })
+    }
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+            key={item.id}
+            onPress={handleNavigator}
+            style={styles.container}>
             <Image
                 source={{ uri: item.img }}
                 style={styles.img}
@@ -14,7 +27,7 @@ const LessonItem = ({ item }) => {
             <View style={styles.info}>
                 <Text style={styles.lesson_name}>{item.name}</Text>
                 <View style={styles.progress_bar}>
-                    <View style={[styles.progress, { width: `${progress}%` }]}></View>
+                    <View style={progressStyle}></View>
                 </View>
             </View>
         </TouchableOpacity>
