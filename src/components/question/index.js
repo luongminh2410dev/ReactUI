@@ -1,20 +1,24 @@
-import React, { useState, memo } from 'react'
+import React, { useState, memo, forwardRef, useImperativeHandle } from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
-import styles from './styles'
+import styles from './styles';
 
-const Question = ({ item, handleAnswer, index }) => {
+const LABELS = ['A', 'B', 'C'];
+
+const Question = forwardRef(({ item }, ref) => {
     const [currentAnswer, setCurrentAnswer] = useState(-1)
-    const { id, question, answerA, answerB, answerC, correctAnswer, img } = item
+    const { id, question, answerA, answerB, answerC, img } = item;
+
+    useImperativeHandle(ref, () => ({
+        getCurrentAnswer: () => LABELS[currentAnswer]
+    }))
+
     const handleAnswerA = () => {
-        handleAnswer(index, 'A')
         setCurrentAnswer(0)
     }
     const handleAnswerB = () => {
-        handleAnswer(index, 'B')
         setCurrentAnswer(1)
     }
     const handleAnswerC = () => {
-        handleAnswer(index, 'C')
         setCurrentAnswer(2)
     }
     const setStylesBtn = {
@@ -48,6 +52,6 @@ const Question = ({ item, handleAnswer, index }) => {
 
         </View>
     )
-}
+})
 
 export default memo(Question)

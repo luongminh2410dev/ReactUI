@@ -9,7 +9,7 @@ const HeaderBack = ({ title, handleBackQuestion }) => {
         navigation.goBack();
     }
     const handleBackClick = () => {
-        if (handleBackQuestion) {
+        if (handleBackQuestion && typeof (handleBackQuestion) === 'function') {
             handleBackQuestion(handleNavigate)
         }
         else {

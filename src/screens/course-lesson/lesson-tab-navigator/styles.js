@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F8F2EE',
         borderRadius: 16,
         overflow: 'hidden',
+        elevation: 0
     },
     label: {
         fontSize: 16,
