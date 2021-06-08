@@ -4,10 +4,13 @@ import { View, Text, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from './styles'
 const TestsTab = ({ route }) => {
-    const lesson = route.params.lesson;
+    const lessons = route.params.lessons;
     const navigation = useNavigation();
-    const handleStartTest = () => {
-        navigation.navigate('Test Question', { lesson })
+    const handleStartTest0 = () => {
+        navigation.navigate('Test Question', { lesson: lessons[0] })
+    }
+    const handleStartTest1 = () => {
+        navigation.navigate('Test Question', { lesson: lessons[1] })
     }
     return (
         <View style={styles.body}>
@@ -18,12 +21,12 @@ const TestsTab = ({ route }) => {
                     resizeMode='contain'
                 />
                 <Text style={styles.quiz}>Quiz 1</Text>
-                <Text style={styles.lesson_name}>Tags For Headers</Text>
+                <Text style={styles.lesson_name}>{lessons[0].name}</Text>
                 <Text style={styles.about}>Let’s put your memory on this topic test.
                 Solve tasks and check your knowledge.
             </Text>
                 <TouchableOpacity
-                    onPress={handleStartTest}
+                    onPress={handleStartTest0}
                     style={styles.btn}>
                     <Text style={styles.btn_txt}>Begin</Text>
                 </TouchableOpacity>
@@ -35,11 +38,13 @@ const TestsTab = ({ route }) => {
                     resizeMode='contain'
                 />
                 <Text style={styles.quiz}>Quiz 2</Text>
-                <Text style={styles.lesson_name}>Tags For Headers</Text>
+                <Text style={styles.lesson_name}>{lessons[1].name}</Text>
                 <Text style={styles.about}>Let’s put your memory on this topic test.
                 Solve tasks and check your knowledge.
             </Text>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity
+                    onPress={handleStartTest1}
+                    style={styles.btn}>
                     <Text style={styles.btn_txt}>Begin</Text>
                 </TouchableOpacity>
             </View>

@@ -32,8 +32,8 @@ const myTheme = {
 
 const AppNavigator = ({ initCart }) => {
     const init = async () => {
-        const initValue = JSON.parse(await AsyncStorage.getItem('cart'))
-        if (initValue.length) {
+        const initValue = JSON.parse(await AsyncStorage.getItem('cart'));
+        if (initValue !== null) {
             initCart(initValue)
         }
     }

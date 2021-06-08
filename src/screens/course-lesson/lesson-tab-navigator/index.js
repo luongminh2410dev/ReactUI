@@ -5,7 +5,7 @@ import TestsTab from '../components/tests-tab';
 import DiscussTab from '../components/discuss-tab';
 import styles from './styles';
 const Tab = createMaterialTopTabNavigator();
-const LessonTabNavigator = ({ lesson }) => {
+const LessonTabNavigator = ({ lessons }) => {
   return (
     <Tab.Navigator
       initialRouteName='Lessons Tab'
@@ -25,7 +25,7 @@ const LessonTabNavigator = ({ lesson }) => {
       <Tab.Screen
         name="Tests Tab"
         component={TestsTab}
-        initialParams={{ lesson }}
+        initialParams={{ lessons }}
         options={{
           tabBarLabel: 'Tests',
         }}

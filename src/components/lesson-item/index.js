@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native';
@@ -12,7 +12,7 @@ const LessonItem = ({ item, course }) => {
     }, [progress])
     // Navigate screen CourseLesson 
     const handleNavigator = () => {
-        navigation.navigate('Course Lesson', { course: course, lesson: item })
+        navigation.navigate('Test Question', { course: course, lesson: item })
     }
     return (
         <TouchableOpacity
@@ -34,4 +34,4 @@ const LessonItem = ({ item, course }) => {
     )
 }
 
-export default LessonItem
+export default memo(LessonItem)
