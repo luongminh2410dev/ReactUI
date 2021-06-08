@@ -25,7 +25,6 @@ const TestQuestion = ({ route, updateLesson }) => {
             // SHOW RESULT TESTS & UPDATE STORE
             handleFinishTest()
         }
-
     }
     //  FINISH ALL QUESTION
     const handleFinishTest = () => {
