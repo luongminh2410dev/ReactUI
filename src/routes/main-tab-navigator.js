@@ -2,11 +2,11 @@ import React from 'react'
 import styles from '../screens/home/styles';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/home';
-import Profile from '../screens/profile';
 import Settings from '../screens/settings';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import ProfileStacks from './profile-navigator';
 const Tab = createBottomTabNavigator();
 const MainTab = () => {
     return (
@@ -30,7 +30,7 @@ const MainTab = () => {
             />
             <Tab.Screen
                 name="Profile"
-                component={Profile}
+                component={ProfileStacks}
                 options={{
                     tabBarLabel: 'Profile',
                     tabBarIcon: ({ color }) => (

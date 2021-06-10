@@ -13,6 +13,8 @@ const LessonTabNavigator = ({ lessons }) => {
         activeTintColor: '#3C3A36',
         labelStyle: styles.label,
         style: styles.tab_bar,
+        indicatorStyle: styles.line_bottomtab,
+        tabStyle: styles.tab
       }}
     >
       <Tab.Screen

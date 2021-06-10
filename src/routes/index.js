@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Platform, UIManager, SafeAreaView } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -6,7 +6,6 @@ import Login from '../screens/authentication/login';
 import SignUp from '../screens/authentication/sign-up';
 import Results from '../screens/home/results';
 import ProductDetail from '../screens/product-detail';
-import YourCourses from '../screens/profile/your-courses';
 import MainTab from './main-tab-navigator';
 import ChooseLesson from '../screens/choose-lessons-course';
 import CourseLesson from '../screens/course-lesson';
@@ -50,7 +49,6 @@ const AppNavigator = ({ initCart }) => {
                     <Stack.Screen name='Home' component={MainTab} />
                     <Stack.Screen name='Results' component={Results} />
                     <Stack.Screen name='Product Detail' component={ProductDetail} />
-                    <Stack.Screen name='Your Courses' component={YourCourses} />
                     <Stack.Screen name='Choose Lesson' component={ChooseLesson} />
                     <Stack.Screen name='Course Lesson' component={CourseLesson} />
                     <Stack.Screen name='Test Question' component={TestQuestion} />

@@ -4,14 +4,22 @@ const styles = StyleSheet.create({
     tab_bar: {
         width: '100%',
         height: 42,
-        backgroundColor: '#F8F2EE',
         borderRadius: 16,
         overflow: 'hidden',
-        elevation: 0
+        elevation: 0,
     },
     label: {
+        height: '100%',
         fontSize: 16,
         textAlign: 'center',
+        textTransform: 'none'
+    },
+    line_bottomtab: {
+        backgroundColor: 'transparent'
+    },
+    tab: {
+        marginHorizontal: 2,
+        backgroundColor: '#F8F2EE',
     }
 })
 

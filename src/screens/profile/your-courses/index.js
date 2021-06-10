@@ -6,7 +6,7 @@ import CourseItem from '../../../components/course-item';
 import { removeCourse } from '../../../actions/cart';
 import HeaderBack from '../../../components/header-back';
 
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (item, index) => item.id.toString()
 const YourCourses = ({ cart, removeCourse }) => {
     const renderItem = useCallback(({ item }) => (
         <CourseItem

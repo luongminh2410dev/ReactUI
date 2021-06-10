@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useCallback, useState } from 'react'
 import { View, Text, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, TouchableOpacity, FlatList } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import styles from './styles'

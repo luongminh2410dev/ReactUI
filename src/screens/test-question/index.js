@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react'
-import { View, Text, Image, TouchableOpacity, Alert, FlatList } from 'react-native'
+import React, { useCallback, useState, useRef } from 'react'
+import { View, Text, TouchableOpacity, Alert, FlatList } from 'react-native'
 import styles from './styles'
 import HeaderBack from '../../components/header-back'
 import { connect } from 'react-redux'

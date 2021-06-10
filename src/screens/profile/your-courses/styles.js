@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         paddingHorizontal: 16,
-        paddingVertical: Metrics.MARGIN_ITEM * 2,
+        paddingTop: Metrics.MARGIN_ITEM * 2,
         backgroundColor: 'white',
         justifyContent: 'flex-start',
         alignItems: 'center'
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         marginLeft: Metrics.DEVICE_WIDTH / 2 - 16 - Metrics.BTN_BACK_SIZE - 75
     },
     list_course: {
-        marginTop: Metrics.MARGIN_ITEM,
+        marginVertical: Metrics.MARGIN_ITEM,
         width: '100%',
         height: '100%'
     },
